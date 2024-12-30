@@ -1,75 +1,34 @@
-# Nuxt Minimal Starter
+# Nuxt 3 Components Management Example
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+If there are components that I've needed to break out just for one page, they belong in a sub-folder of that page. There is no need for me to hunt around. This also saves you from going up/down the folder tree all the time just to complete a feature.
 
-## Setup
+In the example above, it's assumed the Product components are special to the gallery page. The second they are needed on any OTHER page, then they should be moved into the old components folder. That folder should be reserved for any component that's used on multiple pages, or doesn't belong to any one page (like global modals).
 
-Make sure to install dependencies:
+I don't recommend using auto import in local components, if you want to use auto import you can add this code on your nuxt config
 
-```bash
-# npm
-npm install
+```js
+components: [
+  '~/components', {
+    path: '~/pages',
+    pattern: '*/components/**',
+    pathPrefix: false
+  }
+]
+```
 
-# pnpm
-pnpm install
+## Getting Started
+1. Install dependencies:
 
-# yarn
-yarn install
-
-# bun
+```
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+2. Run the application:
+```
+bun dev
 ```
 
-## Production
+3. Open your browser and visit http://localhost:3000 to see the application in action.
 
-Build the application for production:
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+src : https://deltener.com/blog/nuxt-enterprise-patterns-component-management
