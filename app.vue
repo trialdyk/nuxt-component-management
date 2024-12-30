@@ -1,6 +1,10 @@
 <template>
   <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+    <NuxtRouteAnnouncer>
+      <template #default="{ message }">
+        <p>{{ message }} was loaded.</p>
+      </template>
+    </NuxtRouteAnnouncer>
+    <NuxtPage/>
   </div>
 </template>
